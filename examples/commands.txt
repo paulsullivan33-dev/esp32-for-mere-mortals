@@ -1,0 +1,34 @@
+The lab's commands, in the order the
+guide runs them. Transcripts are in
+esp32-lab/transcripts/.
+
+Setup (chapter 5, transcript t00):
+
+  arduino-cli version
+  arduino-cli core update-index --additional-urls https://espressif.github.io/arduino-esp32/package_esp32_index.json
+  arduino-cli core install esp32:esp32
+  arduino-cli lib install ArduinoJson
+  arduino-cli core list
+  arduino-cli board listall esp32
+
+  (In this sandbox the core install's
+  own downloads stalled; the lab
+  fetched the index and archives with
+  curl into arduino-cli's staging
+  cache and re-ran the install, which
+  verified and completed. See t00.)
+
+Building (chapter 6, transcripts
+t01 to t03):
+
+  arduino-cli compile --fqbn esp32:esp32:esp32 esp32-lab/sketches/blink
+  arduino-cli compile --fqbn esp32:esp32:esp32 esp32-lab/sketches/wifi-scan
+  arduino-cli compile --fqbn esp32:esp32:esp32 esp32-lab/sketches/json-reading
+
+On real hardware, the half of the
+ceremony the lab could not perform
+(chapters 5, 6 and 15):
+
+  arduino-cli board list
+  arduino-cli upload -p <port> --fqbn esp32:esp32:esp32 esp32-lab/sketches/blink
+  arduino-cli monitor -p <port> -c baudrate=115200

@@ -1,0 +1,204 @@
+$ arduino-cli version
+arduino-cli  Version: 1.5.2-rc.1 Commit: fef6e48df Date: 2026-07-23T11:13:39Z
+$ arduino-cli core update-index --additional-urls https://espressif.github.io/arduino-esp32/package_esp32_index.json
+
+Downloading index: library_index.tar.bz2 downloaded
+
+Downloading index: package_index.tar.bz2 downloaded
+Downloading index: package_esp32_index.json Download failed: performing HEAD request: Head "https://espressif.github.io/arduino-esp32/package_esp32_index.json": context deadline exceeded (Client.Timeout exceeded while awaiting headers)
+Error initializing instance: Some indexes could not be updated.
+Error initializing instance: Loading index file: loading json index file /home/hatch/workspace/esp32-toolchain/data/package_esp32_index.json: open /home/hatch/workspace/esp32-toolchain/data/package_esp32_index.json: no such file or directory
+Downloading missing tool builtin:dfu-discovery@0.1.2...
+
+builtin:dfu-discovery@0.1.2 downloaded
+Installing builtin:dfu-discovery@0.1.2...
+Skipping tool configuration....
+builtin:dfu-discovery@0.1.2 installed
+Downloading missing tool builtin:mdns-discovery@1.1.0...
+
+builtin:mdns-discovery@1.1.0 downloaded
+Installing builtin:mdns-discovery@1.1.0...
+Skipping tool configuration....
+builtin:mdns-discovery@1.1.0 installed
+Downloading missing tool builtin:serial-discovery@1.5.2...
+
+builtin:serial-discovery@1.5.2 downloaded
+Installing builtin:serial-discovery@1.5.2...
+Skipping tool configuration....
+builtin:serial-discovery@1.5.2 installed
+Downloading missing tool builtin:serial-monitor@0.15.0...
+
+builtin:serial-monitor@0.15.0 downloaded
+Installing builtin:serial-monitor@0.15.0...
+Skipping tool configuration....
+builtin:serial-monitor@0.15.0 installed
+Downloading missing tool builtin:ctags@5.8-arduino11...
+
+builtin:ctags@5.8-arduino11 downloaded
+Installing builtin:ctags@5.8-arduino11...
+Skipping tool configuration....
+builtin:ctags@5.8-arduino11 installed
+
+Downloading index: package_index.tar.bz2 downloaded
+Downloading index: package_esp32_index.json Download failed: performing HEAD request: Head "https://espressif.github.io/arduino-esp32/package_esp32_index.json": context deadline exceeded (Client.Timeout exceeded while awaiting headers)
+Some indexes could not be updated.
+$ arduino-cli core install esp32:esp32
+Downloading packages...
+
+arduino:dfu-util@0.11.0-arduino5 downloaded
+esp32:esp-rv32@2601 Download failed: performing HEAD request: Head "https://github.com/espressif/crosstool-NG/releases/download/esp-14.2.0_20260121/riscv32-esp-elf-14.2.0_20260121-x86_64-linux-gnu.tar.gz": context deadline exceeded (Client.Timeout exceeded while awaiting headers)
+Error during install: Download failed: performing HEAD request: Head "https://github.com/espressif/crosstool-NG/releases/download/esp-14.2.0_20260121/riscv32-esp-elf-14.2.0_20260121-x86_64-linux-gnu.tar.gz": context deadline exceeded (Client.Timeout exceeded while awaiting headers)
+$ arduino-cli lib install ArduinoJson
+Downloading ArduinoJson@7.4.3...
+
+ArduinoJson@7.4.3 downloaded
+Installing ArduinoJson@7.4.3...
+Installed ArduinoJson@7.4.3
+$ arduino-cli core list
+No platforms installed.
+$ arduino-cli lib list
+Name        Installed     Available         Location Description
+ArduinoJson 7.4.3         -                 user     -
+
+(second attempt — the first ended on two download
+timeouts against github.com; the packages already
+fetched are cached, so the install resumes)
+$ arduino-cli core update-index --additional-urls https://espressif.github.io/arduino-esp32/package_esp32_index.json
+
+Downloading index: package_index.tar.bz2 downloaded
+Downloading index: package_esp32_index.json Download failed: performing HEAD request: Head "https://espressif.github.io/arduino-esp32/package_esp32_index.json": context deadline exceeded (Client.Timeout exceeded while awaiting headers)
+Error initializing instance: Some indexes could not be updated.
+Error initializing instance: Loading index file: loading json index file /home/hatch/workspace/esp32-toolchain/data/package_esp32_index.json: open /home/hatch/workspace/esp32-toolchain/data/package_esp32_index.json: no such file or directory
+
+Downloading index: package_index.tar.bz2 downloaded
+Downloading index: package_esp32_index.json Download failed: performing HEAD request: Head "https://espressif.github.io/arduino-esp32/package_esp32_index.json": context deadline exceeded (Client.Timeout exceeded while awaiting headers)
+Some indexes could not be updated.
+$ arduino-cli core install esp32:esp32
+Downloading packages...
+arduino:dfu-util@0.11.0-arduino5 arduino:dfu-util@0.11.0-arduino5 already downloaded
+esp32:esp-rv32@2601 Download failed: performing HEAD request: Head "https://github.com/espressif/crosstool-NG/releases/download/esp-14.2.0_20260121/riscv32-esp-elf-14.2.0_20260121-x86_64-linux-gnu.tar.gz": context deadline exceeded (Client.Timeout exceeded while awaiting headers)
+Error during install: Download failed: performing HEAD request: Head "https://github.com/espressif/crosstool-NG/releases/download/esp-14.2.0_20260121/riscv32-esp-elf-14.2.0_20260121-x86_64-linux-gnu.tar.gz": context deadline exceeded (Client.Timeout exceeded while awaiting headers)
+$ arduino-cli core list
+No platforms installed.
+
+(attempts three to five — the sandbox connection is slow
+and arduino-cli gives up on a stalled check; each attempt
+keeps what the last one fetched)
+$ arduino-cli core install esp32:esp32 (attempt 3)
+Downloading packages...
+arduino:dfu-util@0.11.0-arduino5 arduino:dfu-util@0.11.0-arduino5 already downloaded
+esp32:esp-rv32@2601 Download failed: performing HEAD request: Head "https://github.com/espressif/crosstool-NG/releases/download/esp-14.2.0_20260121/riscv32-esp-elf-14.2.0_20260121-x86_64-linux-gnu.tar.gz": context deadline exceeded (Client.Timeout exceeded while awaiting headers)
+Error during install: Download failed: performing HEAD request: Head "https://github.com/espressif/crosstool-NG/releases/download/esp-14.2.0_20260121/riscv32-esp-elf-14.2.0_20260121-x86_64-linux-gnu.tar.gz": context deadline exceeded (Client.Timeout exceeded while awaiting headers)
+attempt 3: failed, retrying
+$ arduino-cli core install esp32:esp32 (attempt 4)
+Downloading packages...
+arduino:dfu-util@0.11.0-arduino5 arduino:dfu-util@0.11.0-arduino5 already downloaded
+esp32:esp-rv32@2601 Download failed: performing HEAD request: Head "https://github.com/espressif/crosstool-NG/releases/download/esp-14.2.0_20260121/riscv32-esp-elf-14.2.0_20260121-x86_64-linux-gnu.tar.gz": context deadline exceeded (Client.Timeout exceeded while awaiting headers)
+Error during install: Download failed: performing HEAD request: Head "https://github.com/espressif/crosstool-NG/releases/download/esp-14.2.0_20260121/riscv32-esp-elf-14.2.0_20260121-x86_64-linux-gnu.tar.gz": context deadline exceeded (Client.Timeout exceeded while awaiting headers)
+attempt 4: failed, retrying
+$ arduino-cli core install esp32:esp32 (attempt 5)
+Downloading packages...
+arduino:dfu-util@0.11.0-arduino5 arduino:dfu-util@0.11.0-arduino5 already downloaded
+esp32:esp-rv32@2601 Download failed: performing HEAD request: Head "https://github.com/espressif/crosstool-NG/releases/download/esp-14.2.0_20260121/riscv32-esp-elf-14.2.0_20260121-x86_64-linux-gnu.tar.gz": context deadline exceeded (Client.Timeout exceeded while awaiting headers)
+Error during install: Download failed: performing HEAD request: Head "https://github.com/espressif/crosstool-NG/releases/download/esp-14.2.0_20260121/riscv32-esp-elf-14.2.0_20260121-x86_64-linux-gnu.tar.gz": context deadline exceeded (Client.Timeout exceeded while awaiting headers)
+attempt 5: failed, retrying
+$ arduino-cli core list
+No platforms installed.
+
+(the sandbox route stalls arduino-cli’s own download
+checks — its HEAD requests to github.com time out while
+other tools fetch the same addresses at once. So the lab
+fetched the index and every archive named in it with
+curl, into the cache folder arduino-cli itself uses,
+and let arduino-cli verify the checksums and install.)
+$ arduino-cli core install esp32:esp32
+Downloading packages...
+arduino:dfu-util@0.11.0-arduino5 arduino:dfu-util@0.11.0-arduino5 already downloaded
+esp32:esp-rv32@2601 esp32:esp-rv32@2601 already downloaded
+esp32:esp-x32@2601 esp32:esp-x32@2601 already downloaded
+esp32:esp32-libs@3.3.12 esp32:esp32-libs@3.3.12 already downloaded
+esp32:esp32c3-libs@3.3.12 esp32:esp32c3-libs@3.3.12 already downloaded
+esp32:esp32c5-libs@3.3.12 esp32:esp32c5-libs@3.3.12 already downloaded
+esp32:esp32c6-libs@3.3.12 esp32:esp32c6-libs@3.3.12 already downloaded
+esp32:esp32h2-libs@3.3.12 esp32:esp32h2-libs@3.3.12 already downloaded
+esp32:esp32p4-libs@3.3.12 esp32:esp32p4-libs@3.3.12 already downloaded
+esp32:esp32p4_es-libs@3.3.12 esp32:esp32p4_es-libs@3.3.12 already downloaded
+esp32:esp32s2-libs@3.3.12 esp32:esp32s2-libs@3.3.12 already downloaded
+esp32:esp32s3-libs@3.3.12 esp32:esp32s3-libs@3.3.12 already downloaded
+esp32:esptool_py@5.3.1 esp32:esptool_py@5.3.1 already downloaded
+esp32:mklittlefs@4.0.2-db0513a esp32:mklittlefs@4.0.2-db0513a already downloaded
+esp32:mkspiffs@0.2.3 esp32:mkspiffs@0.2.3 already downloaded
+esp32:openocd-esp32@v0.12.0-esp32-20260424 esp32:openocd-esp32@v0.12.0-esp32-20260424 already downloaded
+esp32:riscv32-esp-elf-gdb@17.1_20260402 esp32:riscv32-esp-elf-gdb@17.1_20260402 already downloaded
+esp32:xtensa-esp-elf-gdb@17.1_20260402 esp32:xtensa-esp-elf-gdb@17.1_20260402 already downloaded
+esp32:esp32@3.3.12 esp32:esp32@3.3.12 already downloaded
+Installing arduino:dfu-util@0.11.0-arduino5...
+Skipping tool configuration....
+arduino:dfu-util@0.11.0-arduino5 installed
+Installing esp32:esp-rv32@2601...
+Skipping tool configuration....
+esp32:esp-rv32@2601 installed
+Installing esp32:esp-x32@2601...
+Skipping tool configuration....
+esp32:esp-x32@2601 installed
+Installing esp32:esp32-libs@3.3.12...
+Skipping tool configuration....
+esp32:esp32-libs@3.3.12 installed
+Installing esp32:esp32c3-libs@3.3.12...
+Skipping tool configuration....
+esp32:esp32c3-libs@3.3.12 installed
+Installing esp32:esp32c5-libs@3.3.12...
+Skipping tool configuration....
+esp32:esp32c5-libs@3.3.12 installed
+Installing esp32:esp32c6-libs@3.3.12...
+Skipping tool configuration....
+esp32:esp32c6-libs@3.3.12 installed
+Installing esp32:esp32h2-libs@3.3.12...
+Skipping tool configuration....
+esp32:esp32h2-libs@3.3.12 installed
+Installing esp32:esp32p4-libs@3.3.12...
+Skipping tool configuration....
+esp32:esp32p4-libs@3.3.12 installed
+Installing esp32:esp32p4_es-libs@3.3.12...
+Skipping tool configuration....
+esp32:esp32p4_es-libs@3.3.12 installed
+Installing esp32:esp32s2-libs@3.3.12...
+Skipping tool configuration....
+esp32:esp32s2-libs@3.3.12 installed
+Installing esp32:esp32s3-libs@3.3.12...
+Skipping tool configuration....
+esp32:esp32s3-libs@3.3.12 installed
+Installing esp32:esptool_py@5.3.1...
+Skipping tool configuration....
+esp32:esptool_py@5.3.1 installed
+Installing esp32:mklittlefs@4.0.2-db0513a...
+Skipping tool configuration....
+esp32:mklittlefs@4.0.2-db0513a installed
+Installing esp32:mkspiffs@0.2.3...
+Skipping tool configuration....
+esp32:mkspiffs@0.2.3 installed
+Installing esp32:openocd-esp32@v0.12.0-esp32-20260424...
+Skipping tool configuration....
+esp32:openocd-esp32@v0.12.0-esp32-20260424 installed
+Installing esp32:riscv32-esp-elf-gdb@17.1_20260402...
+Skipping tool configuration....
+esp32:riscv32-esp-elf-gdb@17.1_20260402 installed
+Installing esp32:xtensa-esp-elf-gdb@17.1_20260402...
+Skipping tool configuration....
+esp32:xtensa-esp-elf-gdb@17.1_20260402 installed
+Installing platform esp32:esp32@3.3.12...
+Skipping platform configuration....
+Platform esp32:esp32@3.3.12 installed
+$ arduino-cli core list
+ID          Installed Latest Name
+esp32:esp32 3.3.12    3.3.12 esp32
+
+$ arduino-cli board listall esp32 | head -8
+Board Name                                  FQBN
+4D Systems ESP32-P4 MIPI Displays           esp32:esp32:esp32p4_4ds_mipi
+4D Systems ESP32-P4 Round MIPI Displays     esp32:esp32:esp32p4_4ds_mipi_round
+4D Systems gen4-ESP32 Modules (ESP32-S3)    esp32:esp32:gen4-ESP32-S3R8n16
+AI Thinker ESP32-CAM                        esp32:esp32:esp32cam
+ALKS ESP32                                  esp32:esp32:alksesp32
+AMYboard                                    esp32:esp32:amyboard
+ATD1.47-S3                                  esp32:esp32:atd147_s3

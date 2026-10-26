@@ -1,0 +1,78 @@
+The lab — one real toolchain, three real
+compiles, no board
+================================================================
+
+The lab is the ESP32 toolchain as its
+makers ship it, installed into a
+self-contained folder on the build
+machine (an Ubuntu 24.04 sandbox,
+2 CPUs, 7.7 GB RAM, no ESP32 board
+attached):
+
+  * arduino-cli 1.5.2-rc.1, the Arduino
+    project's command-line driver.
+  * Espressif's ESP32 core 3.3.12,
+    installed with arduino-cli, bringing
+    the Xtensa and RISC-V compiler
+    toolchains for the whole family.
+  * ArduinoJson 7.4.3, installed by
+    name from the public library index.
+  * Three sketches written for the
+    guide (esp32-lab/sketches/), all
+    for one fictional workshop sensor
+    node: a blink, a Wi-Fi scan, and a
+    sensor reading formatted as JSON.
+    All three were compiled for the
+    generic original-ESP32 target,
+    esp32:esp32:esp32.
+
+What the lab ran, in
+esp32-lab/transcripts/:
+
+  * t00-toolchain-setup.txt — the
+    install. It includes the honest
+    wrinkle: arduino-cli's own download
+    checks (HEAD requests to github.com)
+    stalled repeatedly in this sandbox
+    while other tools fetched the same
+    addresses in about a second. After
+    five failed attempts, the lab
+    fetched the package index and every
+    archive it names with curl, into
+    the staging cache arduino-cli
+    itself uses, and arduino-cli
+    verified each checksum and
+    completed the install.
+  * t01-blink-compile.txt — blink:
+    271,704 bytes of program storage
+    (20% of the 1,310,720-byte app
+    partition); 22,116 bytes of globals
+    (6% of 327,680).
+  * t02-wifi-scan-compile.txt — the
+    scan: 877,284 bytes (66%) and
+    45,680 bytes of globals. That is
+    what Wi-Fi costs, printed.
+  * t03-json-reading-compile.txt — the
+    JSON reading: 276,812 bytes (21%),
+    globals unchanged. ArduinoJson's
+    price over the blink baseline is
+    5,108 bytes of program storage.
+
+What the lab did not do:
+
+  * No board was attached, so nothing
+    was flashed, no LED lit, no serial
+    monitor spoke, no network was
+    joined or hosted, no sensor was
+    read, no sleeping current was
+    measured. The sketches are
+    compile-verified only, and the
+    guide says so wherever it matters:
+    compiled is proven here; running
+    is proven only by the board.
+  * The temperature in the JSON sketch
+    is simulated — a slow sine wave —
+    and the sketch's own comments say
+    so. No real network names,
+    passwords, people or places appear
+    anywhere in the lab.
